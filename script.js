@@ -9,7 +9,7 @@ function getArtistInfo(artist)
         var artistSummary = $("<p>").html(response.artist.bio.summary);
         var artistListeners = $("<p>").text(response.artist.stats.listeners + " Listeners on Last.FM");
         var artistPlaycount = $("<p>").text(response.artist.stats.playcount + " Current playcount on Last.FM");
-        $("#content").append(artistName, artistSummary, artistListeners, artistPlaycount);
+        $("#contentDesc").append(artistName, artistSummary, artistListeners, artistPlaycount);
       });
 }
 function getYoutubeVid(artist)
@@ -38,9 +38,10 @@ function getYoutubeVid(artist)
 }
 
 function embedVideo(data) {
-    $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
-    $('h3').text(data.items[0].snippet.title)
-    $('.description').text(data.items[0].snippet.description)
+    var embed = $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
+    var vidTitle = $('h3').text(data.items[0].snippet.title)
+    var vidDesc = $('.description').text(data.items[0].snippet.description)
+    $("#contentVid").append(vidTitle, embed, vidDesc);
 }
 
 $("#artSub").on("click", function(event)
