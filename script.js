@@ -74,17 +74,6 @@ function searchBandsInTown(artist) {
     });
   }
 
-  // Event handler for user clicking the select-artist button
-  $("#select-artist").on("click", function(event) {
-    // Preventing the button from trying to submit the form
-    event.preventDefault();
-    // Storing the artist name
-    var inputArtist = $("#artist-input").val().trim();
-
-    // Running the searchBandsInTown function(passing in the artist as an argument)
-    searchBandsInTown(inputArtist);
-});
-
 
 $("#artSub").on("click", function(event)
 {
