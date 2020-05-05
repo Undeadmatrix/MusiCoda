@@ -8,7 +8,7 @@ function getArtistInfo(artist)
         method: "GET"
       }).then(function(response) {
         var artistName = $("<h1>").text("Information about: " + response.artist.name);
-        var artistSummary = $("<p>").text(response.artist.bio.summary);
+        var artistSummary = $("<p>").html(response.artist.bio.summary);
         var artistListeners = $("<p>").text(response.artist.stats.listeners + " Listeners on Last.FM");
         var artistPlaycount = $("<p>").text(response.artist.stats.playcount + " Current playcount on Last.FM");
         $("#artInfo").append(artistName, artistSummary, artistListeners, artistPlaycount);
