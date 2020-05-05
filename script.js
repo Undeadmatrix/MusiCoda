@@ -22,7 +22,7 @@ function getYoutubeVid(artist)
             key: 'AIzaSyChQJ-UQQHiOyUXb26uNi5IKpa8VQYDS3E',
             q: artist,
             part: 'snippet',
-            maxResults: 1,
+            maxResults: 5,
             type: 'video',
             videoEmbeddable: true,
         },
