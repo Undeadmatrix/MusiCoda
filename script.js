@@ -52,3 +52,9 @@ $("#artSub").on("click", function(event)
     getArtistInfo(input);
     getYoutubeVid(input);
 });
+
+//toggle button for search menu
+//right now it hides the menu, but the button also disappears
+$("#menuButton").click("slow", function(){
+    $("#searchMenu").toggle();
+})
