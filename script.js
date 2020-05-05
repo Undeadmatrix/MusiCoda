@@ -9,7 +9,7 @@ function getArtistInfo(artist)
         var artistSummary = $("<p>").html(response.artist.bio.summary);
         var artistListeners = $("<p>").text(response.artist.stats.listeners + " Listeners on Last.FM");
         var artistPlaycount = $("<p>").text(response.artist.stats.playcount + " Current playcount on Last.FM");
-        $("#artInfo").append(artistName, artistSummary, artistListeners, artistPlaycount);
+        $("#content").append(artistName, artistSummary, artistListeners, artistPlaycount);
       });
 }
 function getYoutubeVid(artist)
@@ -46,7 +46,7 @@ function embedVideo(data) {
 $("#artSub").on("click", function(event)
 {
     event.preventDefault();
-    var input = $("#artistName").val();
+    var input = $("#band-search").val();
     console.log(input);
     getArtistInfo(input);
     getYoutubeVid(input);
