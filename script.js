@@ -61,10 +61,10 @@ function getTopTracks(artist) {
             topTracksPlaycountArr.push(response.toptracks.track[i].playcount);
             console.log("top tracks: " + topTracksArr);
         }
-        $("#contentDesc").append("<h3>" + "Top Tracks");
+        $("#contentList").prepend("<h3>" + "Top Tracks");
         for(var k = 0; k < topTracksArr.length; k++)
         {
-            $("#contentDesc").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+            $("#contentList").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
         }
         
     });
