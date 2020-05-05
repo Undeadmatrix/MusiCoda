@@ -33,7 +33,7 @@ function getYoutubeVid(artist)
             console.log("Request Failed");
         }
     }).then(function(response) {
-        console.log(response);
+        //console.log(response);
     });
 }
 
@@ -44,8 +44,31 @@ function embedVideo(data) {
     $("#contentVid").append(vidTitle, embed, vidDesc);
 }
 
+function getTopTracks(artist) {
 
-
+    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
+   console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log("response: ", response);
+        var topTracksArr = [];
+        var topTracksPlaycountArr = [];
+        for(var i = 0; i < 10; i++)
+        {
+            topTracksArr.push(response.toptracks.track[i].name);
+            topTracksPlaycountArr.push(response.toptracks.track[i].playcount);
+            console.log("top tracks: " + topTracksArr);
+        }
+        $("#contentDesc").append("<h3>" + "Top Tracks");
+        for(var k = 0; k < topTracksArr.length; k++)
+        {
+            $("#contentDesc").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+        }
+        
+    });
+}
 
 
 function searchBandsInTown(artist) {
@@ -58,13 +81,13 @@ function searchBandsInTown(artist) {
     }).then(function(response) {
 
       // Printing the entire object to console
-      console.log(response);
+      //console.log(response);
 
       // Constructing HTML containing the artist information
       var artistName = $("<h1>").text(response.name);
       var artistURL = $("<a>").attr("href", response.url).append(artistName);
       var artistImage = $("<img>").attr("src", response.thumb_url);
-      var trackerCount = $("<h2>").text(response.tracker_count + " fans tracking this artist");
+      var trackerCount = $("<h2>").text(response.tracker_count + " fans tracking this artist on BandsInTown");
       var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
 
@@ -83,4 +106,5 @@ $("#artSub").on("click", function(event)
     getArtistInfo(input);
     getYoutubeVid(input);
     searchBandsInTown(input);
+    getTopTracks(input);
 });
