@@ -12,11 +12,11 @@ function getArtistInfo(artist)
         var error = $("<p>").text("The artist you searched for could not be found. Please try again.");
         if(response.artist != undefined)
         {
-            $("#contentDesc").append(artistName, artistSummary, artistListeners, artistPlaycount);
+            $("#contentTitle").append(artistName, artistSummary, artistListeners, artistPlaycount);
         }
         else
         {
-            $("#contentDesc").append(error);
+            $("#contentTitle").append(error);
         }
       });
 }
@@ -69,10 +69,9 @@ function getTopTracks(artist) {
             topTracksPlaycountArr.push(response.toptracks.track[i].playcount);
             console.log("top tracks: " + topTracksArr);
         }
-        $("#contentList").prepend("<h3>" + "Top Tracks");
         for(var k = 0; k < topTracksArr.length; k++)
         {
-            $("#contentList").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+            $("#contentListTracks").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
         }
         
     });
@@ -110,12 +109,15 @@ $("#artSub").on("click", function(event)
     event.preventDefault();
     var input = $("#band-search").val();
     console.log(input);
+    $("#contentTitle").text("");
+    $("#contentDesc").text("");
+    $("#contentListTracks").text("");
+    $("#contentListAlbums").text("");
     getArtistInfo(input);
     getYoutubeVid(input);
     searchBandsInTown(input);
     getTopTracks(input);
 });
-
 //toggle button for search menu
 //right now it hides the menu, but the button also disappears
 // $("#menuButton").click("slow", function(){
