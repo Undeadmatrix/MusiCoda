@@ -9,7 +9,15 @@ function getArtistInfo(artist)
         var artistSummary = $("<p>").html(response.artist.bio.summary);
         var artistListeners = $("<p>").text(response.artist.stats.listeners + " Listeners on Last.FM");
         var artistPlaycount = $("<p>").text(response.artist.stats.playcount + " Current playcount on Last.FM");
-        $("#contentDesc").append(artistName, artistSummary, artistListeners, artistPlaycount);
+        var error = $("<p>").text("The artist you searched for could not be found. Please try again.");
+        if(response.artist != undefined)
+        {
+            $("#contentDesc").append(artistName, artistSummary, artistListeners, artistPlaycount);
+        }
+        else
+        {
+            $("#contentDesc").append(error);
+        }
       });
 }
 function getYoutubeVid(artist)
@@ -92,7 +100,6 @@ function searchBandsInTown(artist) {
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
 
       // Empty the contents of the artist-div, append the new artist content
-      $("#artist-div").empty();
       $("#contentDesc").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
     });
   }
@@ -109,16 +116,8 @@ $("#artSub").on("click", function(event)
     getTopTracks(input);
 });
 
-<<<<<<< HEAD
-// toggle button for search menu
-// right now it hides the menu, but the button also disappears
-$("#menuButton").click("slow", function(){
-    $("#searchMenu").toggle();
-})
-=======
 //toggle button for search menu
 //right now it hides the menu, but the button also disappears
 // $("#menuButton").click("slow", function(){
 //     $("#searchMenu").toggle();
 // })
->>>>>>> bfe2aaa22f85e637ac3b8e6bae410025a64f8be0
