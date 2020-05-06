@@ -9,8 +9,10 @@ body {
 
 #backgroundImg{
     background-color: black;
-    background-size: 100% 100%;
+    background-size: cover;
     background-image: url(img/michael-aleo-qotowcQiRKc-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* scrolling side-bar */
