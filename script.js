@@ -109,8 +109,16 @@ $("#artSub").on("click", function(event)
     getTopTracks(input);
 });
 
+<<<<<<< HEAD
 // toggle button for search menu
 // right now it hides the menu, but the button also disappears
 $("#menuButton").click("slow", function(){
     $("#searchMenu").toggle();
 })
+=======
+//toggle button for search menu
+//right now it hides the menu, but the button also disappears
+// $("#menuButton").click("slow", function(){
+//     $("#searchMenu").toggle();
+// })
+>>>>>>> bfe2aaa22f85e637ac3b8e6bae410025a64f8be0
