@@ -10,7 +10,7 @@ body {
 #backgroundImg{
     background-color: black;
     background-size: 100% 100%;
-    background-image: url(img/sergio-ruiz-WetGvQxnbYY-unsplash.jpg);
+    background-image: url(img/michael-aleo-qotowcQiRKc-unsplash.jpg);
 }
 
 /* scrolling side-bar */
@@ -22,10 +22,4 @@ body {
     width: 100%;
 }
 
-.callout {
-    display: none;;
-    
-    &.is-shown {
-        display: block;
-    }
-}
+
