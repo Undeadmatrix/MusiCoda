@@ -49,6 +49,7 @@ function embedVideo(data) {
     var embed = $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
     var vidTitle = $('h3').text(data.items[0].snippet.title)
     var vidDesc = $('.description').text(data.items[0].snippet.description)
+    var warning = $("#warning").text("If the video is unavailable, please refresh the page and then click on the Youtube icon in the bottom right corner of the video.");
     $("#contentVid").append(vidTitle, embed, vidDesc);
 }
 
@@ -71,6 +72,7 @@ function getTopTracks(artist) {
             topTracksLinkArr.push(response.toptracks.track[i].url);
             console.log("top tracks: " + topTracksArr);
         }
+        $("#topTracksHead").text("Top Tracks: ");
         for(var k = 0; k < topTracksArr.length; k++)
         {
             $("#contentListTracks").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br> <a href=" + topTracksLinkArr[k] + ">" + "Click here to view this song" + "</a>" + "<br>");
@@ -97,7 +99,7 @@ function getTopAlbums(artist) {
              topAlbumsLinkArr.push(response.topalbums.album[i].url);
              console.log("top albums: " + topAlbumsArr);
          }
-        
+         $("#topAlbumsHead").text("Top Albums: ");
          for(var k = 0; k < topAlbumsArr.length; k++)
          {
              $("#contentListAlbums").append("<br>" + topAlbumsArr[k] + " with " + topAlbumsPlaycountArr[k] + " Plays on Last.FM:" + "<br> <a href=" + topAlbumsLinkArr[k] + ">" + "Click here to view this album" + "</a>" + "<br>");
