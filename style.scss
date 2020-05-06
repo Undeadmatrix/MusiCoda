@@ -22,4 +22,10 @@ body {
     width: 100%;
 }
 
-
+.callout {
+    display: none;;
+    
+    &.is-shown {
+        display: block;
+    }
+}

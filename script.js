@@ -9,7 +9,15 @@ function getArtistInfo(artist)
         var artistSummary = $("<p>").html(response.artist.bio.summary);
         var artistListeners = $("<p>").text(response.artist.stats.listeners + " Listeners on Last.FM");
         var artistPlaycount = $("<p>").text(response.artist.stats.playcount + " Current playcount on Last.FM");
-        $("#contentDesc").append(artistName, artistSummary, artistListeners, artistPlaycount);
+        var error = $("<p>").text("The artist you searched for could not be found. Please try again.");
+        if(response.artist != undefined)
+        {
+            $("#contentTitle").append(artistName, artistSummary, artistListeners, artistPlaycount);
+        }
+        else
+        {
+            $("#contentTitle").append(error);
+        }
       });
 }
 function getYoutubeVid(artist)
@@ -61,10 +69,9 @@ function getTopTracks(artist) {
             topTracksPlaycountArr.push(response.toptracks.track[i].playcount);
             console.log("top tracks: " + topTracksArr);
         }
-        $("#contentList").prepend("<h3>" + "Top Tracks");
         for(var k = 0; k < topTracksArr.length; k++)
         {
-            $("#contentList").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+            $("#contentListTracks").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
         }
         
     });
@@ -92,7 +99,6 @@ function searchBandsInTown(artist) {
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
 
       // Empty the contents of the artist-div, append the new artist content
-      $("#artist-div").empty();
       $("#contentDesc").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
     });
   }
@@ -103,14 +109,17 @@ $("#artSub").on("click", function(event)
     event.preventDefault();
     var input = $("#band-search").val();
     console.log(input);
+    $("#contentTitle").text("");
+    $("#contentDesc").text("");
+    $("#contentListTracks").text("");
+    $("#contentListAlbums").text("");
     getArtistInfo(input);
     getYoutubeVid(input);
     searchBandsInTown(input);
     getTopTracks(input);
 });
-
-// toggle button for search menu
-// right now it hides the menu, but the button also disappears
-$("#menuButton").click("slow", function(){
-    $("#searchMenu").toggle();
-})
+//toggle button for search menu
+//right now it hides the menu, but the button also disappears
+// $("#menuButton").click("slow", function(){
+//     $("#searchMenu").toggle();
+// })
