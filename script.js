@@ -1,6 +1,6 @@
 function getArtistInfo(artist)
 {
-    var queryArt = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json";
+    var queryArt = "https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json";
     $.ajax({
         url: queryArt,
         method: "GET"
@@ -54,7 +54,7 @@ function embedVideo(data) {
 
 function getTopTracks(artist) {
 
-    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
+    var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
    console.log(queryURL);
     $.ajax({
         url: queryURL,
@@ -80,7 +80,7 @@ function getTopTracks(artist) {
 }
 
 function getTopAlbums(artist) {
-    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
+    var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
     console.log("albums url: " + queryURL);
      $.ajax({
          url: queryURL,
