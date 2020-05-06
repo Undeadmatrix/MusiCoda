@@ -77,6 +77,30 @@ function getTopTracks(artist) {
     });
 }
 
+function getTopAlbums(artist) {
+    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
+    console.log(queryURL);
+     $.ajax({
+         url: queryURL,
+         method: "GET"
+     }).then(function(response){
+         console.log("response: ", response);
+         var topAlbumsArr = [];
+         var topAlbumsPlaycountArr = [];
+         for(var i = 0; i < 10; i++)
+         {
+             topAlbumsArr.push(response.topalbums.album[i].name);
+             topAlbumsPlaycountArr.push(response.topalbums.album[i].playcount);
+             console.log("top albums: " + topAlbumsArr);
+         }
+        
+         for(var k = 0; k < topAlbumsArr.length; k++)
+         {
+             $("#contentListAlbums").append("<br>" + topAlbumsArr[k] + " with " + topAlbumsPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+         }
+         
+     });
+}
 
 function searchBandsInTown(artist) {
 
