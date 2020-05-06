@@ -55,6 +55,6 @@ $("#artSub").on("click", function(event)
 
 //toggle button for search menu
 //right now it hides the menu, but the button also disappears
-$("#menuButton").click("slow", function(){
-    $("#searchMenu").toggle();
-})
+// $("#menuButton").click("slow", function(){
+//     $("#searchMenu").toggle();
+// })

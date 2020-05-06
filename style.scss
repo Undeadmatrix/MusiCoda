@@ -16,4 +16,10 @@ body {
     display: flex;
 }
 
-
+.callout {
+    display: none;;
+    
+    &.is-shown {
+        display: block;
+    }
+}
