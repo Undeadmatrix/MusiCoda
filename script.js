@@ -5,7 +5,7 @@ function getArtistInfo(artist)
         url: queryArt,
         method: "GET"
       }).then(function(response) {
-        var artistName = $("<h1>").text("Information about: " + response.artist.name);
+        var artistName = $("<h1>").text("Information About: " + response.artist.name);
         var artistSummary = $("<p>").html(response.artist.bio.summary);
         var artistListeners = $("<p>").text(response.artist.stats.listeners + " Listeners on Last.FM");
         var artistPlaycount = $("<p>").text(response.artist.stats.playcount + " Current playcount on Last.FM");
@@ -49,7 +49,7 @@ function embedVideo(data) {
     var embed = $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
     var vidTitle = $('h3').text(data.items[0].snippet.title)
     var vidDesc = $('.description').text(data.items[0].snippet.description)
-    var warning = $("#warning").text("If the video doesn't show up right, please refresh the page and try again.");
+    $("#warning").text("If the video doesn't show up right, please refresh the page and try again.");
     $("#contentVid").append(vidTitle, embed, vidDesc);
 }
 
