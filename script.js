@@ -49,7 +49,7 @@ function embedVideo(data) {
     var embed = $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
     var vidTitle = $('h3').text(data.items[0].snippet.title)
     var vidDesc = $('.description').text(data.items[0].snippet.description)
-    var warning = $("#warning").text("If the video is unavailable, please refresh the page and then click on the Youtube icon in the bottom right corner of the video.");
+    var warning = $("#warning").text("If the video doesn't show up right, please refresh the page and try again.");
     $("#contentVid").append(vidTitle, embed, vidDesc);
 }
 
