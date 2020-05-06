@@ -63,15 +63,17 @@ function getTopTracks(artist) {
         console.log("response: ", response);
         var topTracksArr = [];
         var topTracksPlaycountArr = [];
+        var topTracksLinkArr = [];
         for(var i = 0; i < 10; i++)
         {
             topTracksArr.push(response.toptracks.track[i].name);
             topTracksPlaycountArr.push(response.toptracks.track[i].playcount);
+            topTracksLinkArr.push(response.toptracks.track[i].url);
             console.log("top tracks: " + topTracksArr);
         }
         for(var k = 0; k < topTracksArr.length; k++)
         {
-            $("#contentListTracks").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+            $("#contentListTracks").append("<br>" + topTracksArr[k] + " with " + topTracksPlaycountArr[k] + " Plays on Last.FM:" + "<br> <a href=" + topTracksLinkArr[k] + ">" + "Click here to view this song" + "</a>" + "<br>");
         }
         
     });
@@ -79,24 +81,26 @@ function getTopTracks(artist) {
 
 function getTopAlbums(artist) {
     var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=d35c0d49073f8b963f9d4b537fa18077&format=json"
-    console.log(queryURL);
+    console.log("albums url: " + queryURL);
      $.ajax({
          url: queryURL,
          method: "GET"
      }).then(function(response){
-         console.log("response: ", response);
+         console.log("response albums: ", response);
          var topAlbumsArr = [];
          var topAlbumsPlaycountArr = [];
+         var topAlbumsLinkArr = [];
          for(var i = 0; i < 10; i++)
          {
              topAlbumsArr.push(response.topalbums.album[i].name);
              topAlbumsPlaycountArr.push(response.topalbums.album[i].playcount);
+             topAlbumsLinkArr.push(response.topalbums.album[i].url);
              console.log("top albums: " + topAlbumsArr);
          }
         
          for(var k = 0; k < topAlbumsArr.length; k++)
          {
-             $("#contentListAlbums").append("<br>" + topAlbumsArr[k] + " with " + topAlbumsPlaycountArr[k] + " Plays on Last.FM:" + "<br>");
+             $("#contentListAlbums").append("<br>" + topAlbumsArr[k] + " with " + topAlbumsPlaycountArr[k] + " Plays on Last.FM:" + "<br> <a href=" + topAlbumsLinkArr[k] + ">" + "Click here to view this album" + "</a>" + "<br>");
          }
          
      });
@@ -141,6 +145,7 @@ $("#artSub").on("click", function(event)
     getYoutubeVid(input);
     searchBandsInTown(input);
     getTopTracks(input);
+    getTopAlbums(input);
 });
 //toggle button for search menu
 //right now it hides the menu, but the button also disappears
