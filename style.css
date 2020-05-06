@@ -1,9 +1,16 @@
+*{
+    color: ghostwhite;
+}
+
+
 body {
     margin: 20px;
-    background: black;
+}
+
+#backgroundImg{
+    background-color: black;
     background-size: 100% 100%;
     background-image: url(img/sergio-ruiz-WetGvQxnbYY-unsplash.jpg);
-    background: no-repeat;
 }
 
 /* scrolling side-bar */
