@@ -143,7 +143,10 @@ $("#artSub").on("click", function(event)
     getTopAlbums(input);
 });
 //toggle button for search menu
-//right now it hides the menu, but the button also disappears
 $("#menuButton").click("slow", function(){
     $("#searchMenu").toggle();
+    $("#brand").toggle();
+    $("#subtitle").toggle();
 })
+
+var stickyElem = new Foundation.Sticky($(".sticky"));

@@ -1,7 +1,11 @@
 *{
     color: ghostwhite;
+    font-family: 'Raleway', sans-serif;
 }
 
+#brand{
+    font-family: 'Ubuntu', sans-serif !important;
+}
 
 body {
     margin: 20px;
@@ -15,13 +19,7 @@ body {
     background-position: center;
 }
 
-/* scrolling side-bar */
-.docs-nav {
-    overflow: auto;
-    overflow-y: scroll;
-    background: #f7f7f7;
-    padding-bottom: 100px;
+.global-nav-mobile-wrapper {
     width: 100%;
 }
-
 

@@ -6,28 +6,31 @@
     <title>MusicCoda</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Ubuntu:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="backgroundImg">
-    <div class="global-nav-moblie-wrapper">
-        <button class="button" data-toggle="searchMenu" type="button" id="menuButton">
-            <i class="fa fa-bars"></i>Menu
-    </button>   MusiCoda - Your artist's homepage
-    </div>
-    <div class="grid-y grid-margin-y" id="searchMenu">
-        <div class="small-12 cell">
-                <form>
-                    <div class="grid-x grid-margin-x">
-                        <div class="small-12 cell">
-                            <div class="input-group">
-                                    <input for="band-search" id="band-search" type="text" placeholder="Band/Artist">
-                                    <input class= "button" type="submit" value="Submit" id="artSub">
+    <div data-sticky-container>
+        <div class="global-nav-moblie-wrapper sticky is-anchored is-at top" data-sticky data-margin-top:"0">
+            <button class="button"  data-toggle="searchMenu" type="button" id="menuButton">
+                <i class="fa fa-bars"></i>Menu</button>  <div class="grid-x"><h6 class="cell-auto" id="brand">MusiCoda</h6><h7 class="cell-auto" id="subtitle">- Your artist's homepage</h7></div>  
+        
+            <div class="grid-y grid-margin-y" id="searchMenu">
+                <div class="small-12 cell">
+                    <form>
+                        <div class="grid-x grid-margin-x">
+                            <div class="small-12 cell">
+                                <div class="input-group">
+                                        <input for="band-search" id="band-search" type="text" placeholder="Band/Artist">
+                                        <input class= "button" type="submit" value="Submit" id="artSub">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
+        </div>
     </div>
     <div class="grid-x grid-margin-x grid-padding-x">
         <div class="small-12 medium-6 large-4 cell" id="contentTitle">
